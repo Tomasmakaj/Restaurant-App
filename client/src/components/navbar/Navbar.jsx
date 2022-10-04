@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 
-import {FaHamburger} from 'react-icons/fa'
+import {GiHamburger} from 'react-icons/gi'
 import {HiOutlineMenuAlt4} from 'react-icons/hi'
 // import {FaRegTimesCircle} from 'react-icons/fa'
 import {BsFacebook,BsTwitter,BsApple} from 'react-icons/bs'
@@ -36,11 +37,11 @@ const Navbar = () => {
   return (
     <div className='navbar'>
         <div className='container'>
-            <h1><span><FaHamburger /> Not</span> Shake Shack</h1>
-            <button onClick={()=>setIsShowingSignUp(true)} className ='btn'>Sign In</button>
+            <h1><span><GiHamburger /> Not </span> Shake Shack</h1>
                 <a href='#'>Home</a>
                 <a href='#'>Menu</a>
                 <a href='#'>About</a>
+                <button onClick={()=>setIsShowingSignUp(true)} className ='btn'>Sign In</button>
             
             <div className ="hamburger">
                 <HiOutlineMenuAlt4 />
