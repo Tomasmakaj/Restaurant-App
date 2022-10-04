@@ -1,0 +1,25 @@
+.hero{
+    height: 80vh;
+    width: 100%;
+    position: relative;
+    margin-bottom: 4rem;
+}
+
+.hero:before {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.video {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+
+
