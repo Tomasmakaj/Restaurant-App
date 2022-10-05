@@ -55,7 +55,19 @@ function Login ({setIsShowingSignUp,user,setUser}) {
         <input onChange={updateForm} name="password" type='password' placeholder='Password'/>
     </form>
     </>
-: <h1>Your Logged in already <span onClick={logOut}>LOG OUT</span></h1>}
+: 
+<>
+<div className='out'>
+<h1> Your Logged in already </h1>
+{/* <span onClick={logOut}>LOG OUT</span> */}
+<h4> We hate to see you go! </h4>
+
+<button className='btn' onClick={logOut}>LOG OUT</button>
+</div>
+</>
+
+
+}
       {/* <button className='btn'>Sign Up</button>
       <input onChange={handleChange} name="username" value={logInInfo.username} type='email' placeholder='Email' />
     <input onChange={handleChange} name="password" value={logInInfo.password} type='password'placeholder='Password'/> */}
