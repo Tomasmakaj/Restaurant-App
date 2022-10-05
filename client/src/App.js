@@ -6,6 +6,7 @@ import MenuContainer from './components/menu/MenuContainer';
 
 
 
+
 function App() {
 
   return (
@@ -14,6 +15,7 @@ function App() {
       <Navbar />
       <Hero />
       <MenuContainer />
+
     </div>
     </>
   );
