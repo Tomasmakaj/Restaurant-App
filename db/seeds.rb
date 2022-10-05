@@ -11,11 +11,12 @@ Menu.destroy_all
 Order.destroy_all
 User.destroy_all
 
-
-puts "🍔 Seeding Locations"
 location_1 = Location.create(address: "200 Broadway St, New York, NY 10038")
 location_2 = Location.create(address: "409 Fulton St, Brooklyn, NY 11201")
 location_3 = Location.create(address: "1 W 125th St, New York, NY 10027")
+
+puts "🍔 Seeding User"
+User.create!(username: "Tommy", password: "123", location_id:location_1.id)
 
 puts "🍔 Seeding Menu"
 Menu.create(item_name: "Burger", price: 9.75, image: "https://upload.wikimedia.org/wikipedia/commons/4/47/Hamburger_%28black_bg%29.jpg")
