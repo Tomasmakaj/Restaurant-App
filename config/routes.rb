@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :locations
 
   post '/login', to: 'users#login'
-  get '/me', to: 'users#me'
+  get '/profile', to: 'users#profile'
 
 
 

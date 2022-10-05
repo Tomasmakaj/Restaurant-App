@@ -1,44 +1,64 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import {BsFacebook,BsTwitter,BsApple} from 'react-icons/bs'
+import { json } from 'react-router-dom';
 
-const Login=({setIsShowingSignUp})=> {
-  const[logInInfo, setLogInInfo] = useState ({email:"", password:"" })
+function Login ({setIsShowingSignUp,user,setUser}) {
+  const [form, setForm] = useState ({});
 
-  function handleChange(e){
-    let{name, value} = e.target
-    setLogInInfo({...logInInfo, [name]:value})
-  }
-  
-  function handleSubmit(e){
-    e.preventDefault()
-    setIsShowingSignUp(false)
-
-    fetch("http://localhost:8080/login" , {
-      method: 'POST',
+  let handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(form);
+    fetch("http://127.0.0.1:3000/login", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(logInInfo)
+      body: JSON.stringify(form),
     })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data)})
-    }
+      console.log(data);
+      if(data["user"]){
+        localStorage.setItem("jwt", data.token);
+        setUser({
+          username: data.user.username
+        });
+      }else{
+        alert(data["error"])
+      }
+    });
+  }
 
+    let updateForm = (e) => {
+      setForm({
+        ...form,
+        [e.target.name]: e.target.value,
+      });
+    };
+
+
+
+    let logOut = ()=>{
+      localStorage.clear()
+      setUser({username: ""})
+    }
     return (
     <div onClick={()=>{setIsShowingSignUp(false)}}id='sign-in-modal'><div id='sign-in-container' onClick={(e)=>{e.stopPropagation()}}>
-    <h1>Sign-In</h1>
+    {!user.username ? <>
+      <h1>Sign-In</h1>
     <form id='Sign-In-Form' onSubmit={handleSubmit}>
-    <span><BsFacebook size={40}/></span>
-    <span><BsTwitter size={40} /></span>
-    <span><BsApple size={40}/></span>
-    <button className='btn'>Sign In</button>
-      <input onChange={handleChange} name="email" value={logInInfo.email} type='email' placeholder='Email' />
-      <input onChange={handleChange} name="password" value={logInInfo.password}type='password'placeholder='Password'/>
-      <button className='btn'>Sign Up</button>
-      <input onChange={handleChange} name="email" value={logInInfo.email} type='email' placeholder='Email' />
-      <input onChange={handleChange} name="password" value={logInInfo.password}type='password'placeholder='Password'/>
+      <span><BsFacebook size={40}/></span>
+      <span><BsTwitter size={40} /></span>
+      <span><BsApple size={40}/></span>
+      <button type='submit' className='btn'>Sign In</button>
+        <input onChange={updateForm} name="username" type='text' placeholder='Username' />
+        <input onChange={updateForm} name="password" type='password' placeholder='Password'/>
     </form>
+    </>
+: <h1>Your Logged in already <span onClick={logOut}>LOG OUT</span></h1>}
+      {/* <button className='btn'>Sign Up</button>
+      <input onChange={handleChange} name="username" value={logInInfo.username} type='email' placeholder='Email' />
+    <input onChange={handleChange} name="password" value={logInInfo.password} type='password'placeholder='Password'/> */}
     </div></div>
   )
 }
