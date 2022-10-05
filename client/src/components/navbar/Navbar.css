@@ -94,7 +94,7 @@
     margin-top: 10%;
 }
 
-#Sign-In-Form input[type=email]{
+#Sign-In-Form input[type=text]{
     height: 50px;
     width: 400px;
     font-size: 1.2rem;

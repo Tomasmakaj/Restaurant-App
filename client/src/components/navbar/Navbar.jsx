@@ -6,8 +6,8 @@ import {HiOutlineMenuAlt4} from 'react-icons/hi'
 import Login from "../login/Login.jsx"
 import './Navbar.css'
 
-const Navbar = () => {
-    const[isShowingSignUp, setIsShowingSignUp] = useState (false)
+const Navbar = ({setUser,user}) => {
+    const[isShowingSignIn, setIsShowingSignIn] = useState (false)
 
 
   
@@ -18,7 +18,8 @@ const Navbar = () => {
                 <a href='#'>Home</a>
                 <a href='#'>Menu</a>
                 <a href='#'>About</a>
-                <button onClick={()=>setIsShowingSignUp(true)} className ='btn'>Sign In</button>
+                <button onClick={()=>setIsShowingSignIn(true)} className ='btn'>Sign In</button>
+                <button className ='btn'>Sign Up</button>
             
             <div className ="hamburger">
                 <HiOutlineMenuAlt4 />
@@ -28,7 +29,7 @@ const Navbar = () => {
         </div>
 
         
-        {isShowingSignUp&&<Login setIsShowingSignUp={setIsShowingSignUp} />}
+        {isShowingSignIn&&<Login setUser={setUser} user={user} setIsShowingSignUp={setIsShowingSignIn} />}
     </div>
   )
 }
