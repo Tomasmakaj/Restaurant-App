@@ -13,16 +13,25 @@ class OrdersController < ApplicationController
   end
 
   # POST /orders
-  def create
-    @order = Order.new(order_params)
+  # def CHECKOUT_ORDER
+  # # MUST CHANGE AFTER CHECKOUT IS DONE 
+  # # TAKE IN AN ARRAY OF ORDERS 
+  # # 
+  # end
 
-    if @order.save
-      render json: @order, status: :created, location: @order
-    else
-      render json: @order.errors, status: :unprocessable_entity
-    end
+  def save_order
+    token = request.headers['token']
+    user_id = decode(token)
+    user = User.find(user_id)
+    order = Order.create!(order_item:params[:order_item],price:params[:price],image:params[:image],user_id:user.id, checked_out: false)
+    render json: order
   end
-
+def my_active_orders
+  token = request.headers['token']
+  user_id = decode(token)
+  user = User.find(user_id)
+  render json:{ orders:user.orders.where(checked_out: false)}
+end
   # PATCH/PUT /orders/1
   def update
     if @order.update(order_params)

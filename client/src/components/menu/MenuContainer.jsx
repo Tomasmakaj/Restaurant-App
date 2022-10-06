@@ -2,8 +2,14 @@ import React, {useState, useEffect} from 'react';
 import Card from '../card/Card';
 import './menu.css'
 
-const MenuContainer = () => {
+const MenuContainer = ({user}) => {
+  
   const [menu, setMenu] = useState([]);
+  
+  const [order, setOrder] = useState ({
+    // order_item: '',
+    // user_id: localStorage
+  });
   
   useEffect(() => {
   fetch('http://localhost:3000/menus')
@@ -11,11 +17,9 @@ const MenuContainer = () => {
   .then(data => setMenu(data))
 },[])
 
-console.log(menu)
-
   return (
     <div id='menu' className="menu-container">
-      {menu.map((menuitem=><Card key={menuitem.id} menuitem={menuitem}/>))}
+      {menu.map((menuitem=><Card key={menuitem.id} menuitem={menuitem} order={order} setOrder={setOrder} user={user} />))}
     </div>
   )
 }

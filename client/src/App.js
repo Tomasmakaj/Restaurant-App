@@ -10,7 +10,7 @@ import Footer from './components/footer/Footer'
 
 function App() {
   const [user, setUser] = useState({ username: ""});
-
+const [userCart, setUserCart] = useState([])
   useEffect(() => {
     let token = localStorage.getItem("jwt")
     if (token && !user.username){
@@ -34,9 +34,10 @@ function App() {
     <div>
       <Navbar user={user} setUser={setUser}/>
       <Hero />
-      <MenuContainer />
+      <MenuContainer user={user} />
       <Footer />
-      
+
+
 
     </div>
     </>
