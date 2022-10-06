@@ -1,41 +1,30 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './Card.css'
-const Card = ({menuitem, setOrder, order, user}) => {
-  
-  const [checkUser, setCheckUser] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:3000/users')
-        .then(res => res.json())
-        .then(data =>setCheckUser(data))
-}, []);
+const Card = ({menuitem, userCart, setUserCart}) => {
   let handleClick=(e)=>{
-    console.log(pullUser(checkUser, user))
+    console.log(menuitem)
+    setUserCart([
+      ...userCart,
+      {
+        item_name: menuitem.item_name,
+        price: menuitem.price,
+        image: menuitem.image,
+        checked_out: false
+      },
+    ])
   }
-
-  let pullUser = (arr, obj) => {
-    arr.map(arritem=>{
-      console.log(arritem.username, obj.username, arritem.username===obj.username)
-      if (arritem.username === obj.username)
-      console.log(arritem)
-      return arritem
-
-
-
-})}
-
-
+  console.log(userCart)
   return (
-    <div className='card'>
-        <img className="img" src={menuitem.image} />
+    <div  onClick={handleClick} className='card'>
+        <img className="img" name="image" value={menuitem.image} src={menuitem.image} />
         <div className="space">
-        <h4><b>{menuitem.item_name}</b></h4>
-        <p> $ {menuitem.price}</p>
+          <h4><b name="order_item" value={menuitem.item_name}>{menuitem.item_name}</b></h4>
+          <p name="price" value={menuitem.price}> $ {menuitem.price}</p>
         </div>
         <p>
-          <button onClick={handleClick} >Add to Cart</button>
+          <button value={menuitem.id}>Add to Cart</button>
         </p>
     </div>
   )
 }
-export default Card
+export default Card;

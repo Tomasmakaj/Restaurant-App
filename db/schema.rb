@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2022_10_05_140902) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string "order_item"
+    t.string "item_name"
     t.integer "user_id"
     t.string "image"
     t.integer "price"

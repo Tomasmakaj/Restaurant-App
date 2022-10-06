@@ -33,7 +33,7 @@ Menu.create(item_name: "Onion Rings", price: 2, image: "https://images.pexels.co
 tommy_burger = Menu.create(item_name: "Salad", price: 3, image: "https://images.pexels.com/photos/1213710/pexels-photo-1213710.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2")
 
 puts "🍔 Seeding Menu"
-Order.create(order_item: tommy_burger.item_name, price: tommy_burger.price, image:tommy_burger.image,user_id: tommy.id, checked_out: false)
+Order.create(item_name: tommy_burger.item_name, price: tommy_burger.price, image:tommy_burger.image,user_id: tommy.id, checked_out: false)
 
 
 puts "🍔 Seeding Done!"

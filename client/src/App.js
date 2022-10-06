@@ -10,7 +10,8 @@ import Footer from './components/footer/Footer'
 
 function App() {
   const [user, setUser] = useState({ username: ""});
-const [userCart, setUserCart] = useState([])
+  const [userCart, setUserCart] = useState([])
+
   useEffect(() => {
     let token = localStorage.getItem("jwt")
     if (token && !user.username){
@@ -32,9 +33,9 @@ const [userCart, setUserCart] = useState([])
   return (
     <>
     <div>
-      <Navbar user={user} setUser={setUser}/>
+      <Navbar user={user} setUser={setUser} userCart={userCart} />
       <Hero />
-      <MenuContainer user={user} />
+      <MenuContainer userCart={userCart} setUserCart={setUserCart} />
       <Footer />
 
 

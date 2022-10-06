@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
     token = request.headers['token']
     user_id = decode(token)
     user = User.find(user_id)
-    order = Order.create!(order_item:params[:order_item],price:params[:price],image:params[:image],user_id:user.id, checked_out: false)
+    order = Order.create!(item_name:params[:item_name,price:params[:price],image:params[:image],user_id:user.id, checked_out: false)
     render json: order
   end
 def my_active_orders
