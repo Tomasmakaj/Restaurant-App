@@ -36,6 +36,7 @@ function App() {
       <Hero />
       <MenuContainer />
       <Footer />
+      
 
     </div>
     </>
