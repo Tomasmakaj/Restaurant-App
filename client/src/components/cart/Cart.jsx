@@ -14,11 +14,14 @@ const Cart = ({setNavOpen, userCart, setUserCart}) =>{
 
   console.log(userCart)
 return (
-  <div id="mySidebar, .button" class="sidebar">
+  <div id="mySidebar" class="sidebar">
+    <div className="checkout-window">
     <a href="javascript:void(0)" class="closebtn" onClick={handleClose}>&times;</a>
     {userCart.map(singleitem=><Cartitem key={singleitem.id} singleitem={singleitem} userCart={userCart} setUserCart={setUserCart}/>)}
+    </div>
 
-    <button>Checkout</button>
+
+    <button className="checkout-btn">Checkout</button>
     
   </div>
 )
