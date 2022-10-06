@@ -33,7 +33,7 @@ function App() {
   return (
     <>
     <div>
-      <Navbar user={user} setUser={setUser} userCart={userCart} />
+      <Navbar user={user} setUser={setUser} userCart={userCart} setUserCart={setUserCart}/>
       <Hero />
       <MenuContainer userCart={userCart} setUserCart={setUserCart} />
       <Footer />

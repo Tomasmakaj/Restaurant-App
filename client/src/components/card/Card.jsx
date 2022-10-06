@@ -2,7 +2,6 @@ import React from 'react'
 import './Card.css'
 const Card = ({menuitem, userCart, setUserCart}) => {
   let handleClick=(e)=>{
-    console.log(menuitem)
     setUserCart([
       ...userCart,
       {
@@ -13,7 +12,6 @@ const Card = ({menuitem, userCart, setUserCart}) => {
       },
     ])
   }
-  console.log(userCart)
   return (
     <div  onClick={handleClick} className='card'>
         <img className="img" name="image" value={menuitem.image} src={menuitem.image} />

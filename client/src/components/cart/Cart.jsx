@@ -1,16 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
 import './Cart.css'
-const Cart = ({setNavOpen, userCart}) =>{
+import Cartitem from "../cartitem/Cartitem";
+
+const Cart = ({setNavOpen, userCart, setUserCart}) =>{
+  
   let handleClose=(e)=>{
     setNavOpen((prevState)=>!prevState)
   }
+
+  // let handleDelete=(e)=>{
+    
+  // }
+
+  console.log(userCart)
 return (
-  <div id="mySidebar" class="sidebar">
+  <div id="mySidebar, .button" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onClick={handleClose}>&times;</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
+    {userCart.map(singleitem=><Cartitem key={singleitem.id} singleitem={singleitem} userCart={userCart} setUserCart={setUserCart}/>)}
+
+    <button>Checkout</button>
+    
   </div>
 )
 }

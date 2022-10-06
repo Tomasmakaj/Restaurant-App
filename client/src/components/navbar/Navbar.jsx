@@ -8,7 +8,8 @@ import Login from "../login/Login.jsx"
 import './Navbar.css'
 import Signup from '../signup/Signup.jsx';
 import Cart from '../cart/Cart.jsx'
-const Navbar = ({setUser,user,userCart}) => {
+
+const Navbar = ({setUser,user,userCart, setUserCart}) => {
     const[isShowingSignIn, setIsShowingSignIn] = useState (false)
     const [isShowingSignUp, setIsShowingSignUp] = useState (false);
     const [activeNav, setActiveNav] = useState ('#')
@@ -33,7 +34,7 @@ const Navbar = ({setUser,user,userCart}) => {
             </div>
             {isShowingSignIn&&<Login setUser={setUser} user={user} setIsShowingSignIn={setIsShowingSignIn} />}
             {isShowingSignUp&&<Signup setUser={setUser} user={user} setIsShowingSignUp={setIsShowingSignUp} />}
-            {navOpen&&<Cart userCart={userCart} setNavOpen={setNavOpen}/>}
+            {navOpen&&<Cart userCart={userCart} setNavOpen={setNavOpen} setUserCart={setUserCart}/>}
         </div>
     </>
   )

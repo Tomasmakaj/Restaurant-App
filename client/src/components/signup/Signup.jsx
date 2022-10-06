@@ -52,7 +52,7 @@ function Signup({setIsShowingSignUp,setUser}){
                 <input onChange={createUser} name="username" type='text' placeholder='Username' />
                 <input onChange={createUser} name="password" type='password' placeholder='Password'/>
                 <select name="location_id" onChange={createUser} type='text'>
-                    <option value='' disable selected>Select Your Preferec Location!</option>
+                    <option value='' disable selected>Select Your Location!</option>
                     {locations.map(location=><option value={location.id}>{location.address}</option>)}
                 </select>
             </form>
