@@ -1,13 +1,14 @@
 .out {
     background-color: white;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: baseline;
     height: 75%;
     width: 40%;
     border-radius: 10px;
-    align-items: center;
-    justify-content: space-around;
-    
+    align-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 
