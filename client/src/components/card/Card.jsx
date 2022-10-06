@@ -8,9 +8,12 @@ const Card = ({menuitem}) => {
 
   return (
     <div className='card'>
-        <img src={menuitem.image} />
+        <img className="img" src={menuitem.image} />
+        <div className="space">
         <h4><b>{menuitem.item_name}</b></h4>
         <p> $ {menuitem.price}</p>
+        </div>
+
         <p>
           <button>Add to Cart</button>
         </p>

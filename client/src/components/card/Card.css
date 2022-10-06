@@ -1,10 +1,11 @@
 .card {
     margin: 4rem 0;
     text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
     max-height: 500px;
     margin: auto;
+    border-radius: 25px;
+    /* border: 2px solid #73AD21; */
 }
 
 .card button {
@@ -17,14 +18,27 @@
  cursor: pointer;
  width: 100%;
  font-size: 18px;
+ border-radius: 25px;
+ margin-top: 15px;
 }
 
-/* .card > div {
+.img{
+    object-fit: cover;
+    height: inherit;
+    width: inherit;
+    border-radius: 25px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+.space {
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 1%;
-    margin-top: 2em;
-} */
+}
+
 
 .card > div p {
     margin: 1rem 2rem;
@@ -34,13 +48,6 @@
 .card {
     font-weight: 700;
 }
-
-/* .card .container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1.2rem;
-    padding: 1rem;
-} */
 
 .card img {
     width: 100%;

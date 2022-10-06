@@ -14,7 +14,7 @@ const MenuContainer = () => {
 console.log(menu)
 
   return (
-    <div className="menu-container">
+    <div id='menu' className="menu-container">
       {menu.map((menuitem=><Card key={menuitem.id} menuitem={menuitem}/>))}
     </div>
   )
