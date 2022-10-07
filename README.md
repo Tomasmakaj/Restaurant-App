@@ -1,6 +1,6 @@
 Not Shake Shack App by: Tomas Makaj & Carlos Lugo
 
-Project Goal: Create a version of Shake Shack with the menu displayed from our Backend with the Data we created using Ruby on Rails, Postman, and SQLite.
+Project Goal: Create a webpage of modern restaurants, like Chipotle or Shake Shack, where users have the ability to create accounts and save orders. We created our backend using Ruby on Rails, Postman, and SQLite.
 
 
 
@@ -12,7 +12,7 @@ We gave each Location an address
 
 We gave the Menu an item name, price, and image
 
-We gave our Order item name, price, image, user_id, checked_out true or fale
+We gave our Order an item name, price, image, user_id, checked_out = boolean
 
 <img width="605" alt="Screen Shot 2022-10-07 at 10 22 49 AM" src="https://user-images.githubusercontent.com/108154215/194576293-420fe19c-9a7a-4dae-8984-0c074e77dbd2.png">
 
