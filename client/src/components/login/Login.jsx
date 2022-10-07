@@ -25,16 +25,16 @@ function Login ({setIsShowingSignIn,user,setUser}) {
       }
     });
   }
-    let updateForm = (e) => {
-      setForm({
-        ...form,
-        [e.target.name]: e.target.value,
-      });
-    };
-    let logOut = ()=>{
-      localStorage.clear()
-      setUser({username: ""})
-    }
+  let updateForm = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+  let logOut = ()=>{
+    localStorage.clear()
+    setUser({username: ""})
+  };
     return (
     <div onClick={()=>{setIsShowingSignIn(false)}}id='sign-in-modal'>
       <div id='sign-in-container' onClick={(e)=>{e.stopPropagation()}}>
@@ -51,14 +51,14 @@ function Login ({setIsShowingSignIn,user,setUser}) {
             </form>
           </>
 :
-            <>
-            <h1>Your Logged in already</h1>
-            <h3> We Hate to see you go! </h3>
-            <button className="delete-btn" onClick={logOut}>Log Out</button>
-            </>
-            }
+<>
+<h1>Your Logged in already</h1>
+<h3> We Hate to see you go! </h3>
+<button className="delete-btn" onClick={logOut}>Log Out</button>
+</>
+}
       </div>
     </div>
   )
-}
+};
 export default Login

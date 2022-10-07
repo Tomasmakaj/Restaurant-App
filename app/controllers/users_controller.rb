@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
-  
   # GET /users
   def index
     @users = User.all
@@ -8,30 +6,39 @@ class UsersController < ApplicationController
   end
   # GET /users/1
   def show
-    render json: @user
+    render json: 
+@test_user_mani
+
   end
-  
   # POST /users
   def create
     user = User.create!(username:params[:username], password: params[:password], location_id: params[:location_id])
     token = encode(user.id)
     render json: {user: user, token: token}
   end
-  
   # PATCH/PUT /users/1
   def update
-    if @user.update(user_params)
-      render json: @user
+    token = request.headers['token']
+    user_id = decode(token)
+    # p token
+    # p user_id
+    # p 'testing'
+    user = User.find_by!(id: user_id)
+    if user
+      user.update(user_params)
+      render json: user, status: :accepted
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: { error: "Update not accepted :(" }, status: :not_found
     end
+    # render json: user
   end
-  
   # DELETE /users/1
   def destroy
-    @user.destroy
+    token = request.headers['token']
+    user_id = decode(token)
+    user = User.find_by!(id: user_id)
+    user.destroy
   end
-    
   # LOGIN
     def login
       user = User.find_by!(username: params[:username]).try(:authenticate, params[:password])
@@ -43,7 +50,6 @@ class UsersController < ApplicationController
       end
       # render json: user
     end
-    
     # get profile
     def profile
       token = request.headers['token']
@@ -52,15 +58,12 @@ class UsersController < ApplicationController
       render json: user
     end
   private
-    
   # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
     end
-    
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :password_digest, :location)
+      params.permit(:username, :password_digest, :location_id)
     end
-    
 end
