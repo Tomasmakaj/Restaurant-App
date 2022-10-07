@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-export default function Accountinfo({user,setUser,setIsShowingAccountInfo,form,setForm,handleSubmit,updateForm}){
+import './Accountinfo.css'
+export default function 
+
+
+Accountinfo({user,setUser,setIsShowingAccountInfo,form,setForm,handleSubmit,updateForm}){
     
     const [showChangeForm, setshowChangeForm] = useState(false)
-    
     let handleShowChangeForm = (e) => {
         setshowChangeForm((prevState)=>!prevState)
     }
@@ -28,6 +31,7 @@ export default function Accountinfo({user,setUser,setIsShowingAccountInfo,form,s
     };
     // update user
     function handlePacth(e){
+        console.log('click')
         e.preventDefault()
         fetch("http://localhost:3000/update",{
             method: 'PATCH',
@@ -50,6 +54,7 @@ export default function Accountinfo({user,setUser,setIsShowingAccountInfo,form,s
             }
         })
     };
+
     function handleDelete(e){
         e.preventDefault()
         fetch("http://localhost:3000/destroy",{
@@ -69,8 +74,6 @@ export default function Accountinfo({user,setUser,setIsShowingAccountInfo,form,s
                 <>
                     <h1>Account Info</h1>
                     <div>Current User: {user.username}</div>
-                    <div>Password</div>
-                    <div>Preferred Location</div>
                     <button type='submit' className='btn' onClick={handleShowChangeForm}>Update Your Info?</button>
                 </>
                 :
@@ -79,14 +82,14 @@ export default function Accountinfo({user,setUser,setIsShowingAccountInfo,form,s
                     <form id='Sign-In-Form' onSubmit={handlePacth}>
                         <input onChange={updateInfo} name="username" type='text' placeholder='Username' />
                         <input onChange={updateInfo} name="password" type='password' placeholder='Password'/>
-                        <select name="location_id" onChange={updateInfo} type='text'>
+                        <select className='select' name="location_id" onChange={updateInfo} type='text'>
                             <option value='' disable selected>Select Your Prefered Location!</option>
                             {locations.map(location=><option value={location.id}>{location.address}</option>)}
                         </select>
+                        <button type='submit' className='btn' onClick={handleShowChangeForm}>Go Back</button>
                         <button type='submit' className='btn'>Submit Info Change</button>
                     </form>
-                    <button type='submit' className='btn' onClick={handleShowChangeForm}>Go Back</button>
-                    <button type='submit' className='btn' onClick={handleDelete}>Delete Account</button>
+                    <button className='delete-btn' type='submit' onClick={handleDelete}>Delete Account</button>
                 </>
                 }
             </div>

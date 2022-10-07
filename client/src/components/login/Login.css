@@ -11,9 +11,7 @@
     justify-content: center;
 }
 
-.delete-btn {
-    position: absolute;
-    bottom: 20px;
+#delete-btn {
     color: #fff;
     padding: 12px 24px;
     background-color:rgba(243, 0, 0, 0.75);
@@ -24,7 +22,7 @@
     cursor: pointer;
   }
 
-  .delete-btn:active{
+  #delete-btn:active{
     transform: translate(4px);
     box-shadow: 0px 0px 1px rgba(0,0,0,.2);
     border-bottom: none;

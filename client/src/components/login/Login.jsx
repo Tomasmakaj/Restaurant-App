@@ -1,5 +1,9 @@
 import React,{useState, useEffect} from 'react'
 import {BsFacebook,BsTwitter,BsApple} from 'react-icons/bs'
+import './Login.css'
+
+
+
 function Login ({setIsShowingSignIn,user,setUser}) {
   const [form, setForm] = useState ({});
   let handleSubmit = (e) => {
@@ -54,7 +58,7 @@ function Login ({setIsShowingSignIn,user,setUser}) {
 <>
 <h1>Your Logged in already</h1>
 <h3> We Hate to see you go! </h3>
-<button className="delete-btn" onClick={logOut}>Log Out</button>
+<button id='delete-btn' onClick={logOut}>Log Out</button>
 </>
 }
       </div>

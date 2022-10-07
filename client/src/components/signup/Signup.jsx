@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect } from "react";
 
+import './Signup.css'
+
 function Signup({setIsShowingSignUp,setUser}){
     // get and set locations in dropdown menu
     
@@ -58,7 +60,7 @@ let createUser = (e) => {
                 <button type='submit' className='btn'>Create Log In</button>
                 <input onChange={createUser} name="username" type='text' placeholder='Username' />
                 <input onChange={createUser} name="password" type='password' placeholder='Password'/>
-                <select name="location_id" onChange={createUser} type='text'>
+                <select className='select' name="location_id" onChange={createUser} type='text'>
                     <option value='' disable selected>Select Your Location!</option>
                     {locations.map(location=><option value={location.id}>{location.address}</option>)}
                 </select>
