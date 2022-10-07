@@ -12,6 +12,8 @@ const Cartitem = ({singleitem, userCart,setUserCart}) => {
     let filteredArray =userCart.filter((item)=>singleitem.item_name !== item.item_name)
     setUserCart(filteredArray)
   }
+
+  
   
   return (
     <div className='card'>

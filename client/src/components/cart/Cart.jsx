@@ -8,8 +8,8 @@ const Cart = ({setNavOpen, userCart, setUserCart}) =>{
     setNavOpen((prevState)=>!prevState)
   }
 
-  // let handleDelete=(e)=>{
-    
+  // let handleCheckout=(e) => {
+
   // }
 
   console.log(userCart)

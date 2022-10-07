@@ -51,7 +51,12 @@ function Login ({setIsShowingSignIn,user,setUser}) {
             </form>
           </>
 :
-    <h1>Your Logged in already <span onClick={logOut}>LOG OUT</span></h1>}
+            <>
+            <h1>Your Logged in already</h1>
+            <h3> We Hate to see you go! </h3>
+            <button className="delete-btn" onClick={logOut}>Log Out</button>
+            </>
+            }
       </div>
     </div>
   )
