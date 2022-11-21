@@ -10,9 +10,9 @@
 .navbar .container {
     height:100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    padding: 1rem;
+    padding: 3rem;
 }
 
 .navbar span {
@@ -80,6 +80,7 @@
     background-color: white;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
     height: 75%;
     width: 40%;
@@ -94,7 +95,7 @@
     margin-top: 10%;
 }
 
-#Sign-In-Form input[type=email]{
+#Sign-In-Form input[type=text]{
     height: 50px;
     width: 400px;
     font-size: 1.2rem;

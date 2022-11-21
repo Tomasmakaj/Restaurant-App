@@ -1,0 +1,30 @@
+.out {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    height: 75%;
+    width: 40%;
+    border-radius: 10px;
+    align-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#delete-btn {
+    color: #fff;
+    padding: 12px 24px;
+    background-color:rgba(243, 0, 0, 0.75);
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: .4s;
+    cursor: pointer;
+  }
+
+  #delete-btn:active{
+    transform: translate(4px);
+    box-shadow: 0px 0px 1px rgba(0,0,0,.2);
+    border-bottom: none;
+  }
+

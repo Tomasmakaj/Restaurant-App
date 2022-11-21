@@ -1,7 +1,4 @@
 class ApplicationController < ActionController::API
-
-
-  private
   
   def secret
     'word'

@@ -1,20 +1,11 @@
-// import React, {useState} from 'react'
-
-
-
-
 import './Hero.css'
 import VideoSrc from "../../assets/burger.mp4"
 
 const Hero = () => {
 
-    // function Search
-
   return (
     <div className='hero'>
         <video className="video" src={VideoSrc} autoPlay loop muted />
-    
-            
     </div>
   )
 }
