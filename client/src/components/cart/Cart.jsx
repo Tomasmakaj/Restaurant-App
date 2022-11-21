@@ -27,6 +27,8 @@ const Cart = ({setNavOpen, userCart, setUserCart,user}) =>{
         } else {
           alert(`This is too many orders for a simple project app. This isn't actually Shake Shack`)
         }
+        alert('Order Placed!')
+        setUserCart([])
     } else {
       alert('You must be logged in to order online')
     }

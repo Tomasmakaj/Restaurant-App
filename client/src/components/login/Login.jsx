@@ -16,11 +16,11 @@ function Login ({setIsShowingSignIn,user,setUser}) {
   let logOut = ()=>{
     localStorage.clear()
     setUser({username: ""})
+    setIsShowingSignIn(prevstate=>!prevstate)
   };
   //Handles Log In Fetch, while setting user locally
   let handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
     fetch("http://127.0.0.1:3000/login", {
       method: "POST",
       headers: {
@@ -30,7 +30,6 @@ function Login ({setIsShowingSignIn,user,setUser}) {
     })
     .then((res) => res.json())
     .then((data) => {
-      console.log('this is login',data);
       if(data["user"]){
         localStorage.setItem("jwt", data.token);
         setUser({
@@ -40,6 +39,7 @@ function Login ({setIsShowingSignIn,user,setUser}) {
       }else{
         alert(data["error"])
       }
+      setIsShowingSignIn(prevstate=>!prevstate)
     });
   }
 

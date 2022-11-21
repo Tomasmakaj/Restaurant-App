@@ -44,8 +44,6 @@ function App() {
     }
   }, []);
 
-  console.log('this is init local',locations)
-
   return (
     <>
     <div>

@@ -15,6 +15,7 @@ const Navbar = ({setUser,user,userCart,setUserCart,locations}) => {
     const [isShowingSignUp, setIsShowingSignUp] = useState (false);
     const [isShowingAccountInfo, setIsShowingAccountInfo] = useState (false);
     const [navOpen, setNavOpen] = useState(false)
+    
     let showCart=(e)=>{
         setNavOpen((prevState)=>!prevState)
     }

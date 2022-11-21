@@ -71,14 +71,29 @@ Accountinfo({user,setUser,setIsShowingAccountInfo,locations,setUserCart,userCart
         let match = user.location
         return el.id === match
     }
-    //re-pset cart from previous orders
+    //re-set cart from previous orders
     let reFillCart = (e) => {
-        setUserCart(JSON.parse(localStorage.getItem('order1')))
+        if (localStorage.getItem('order')){
+            setUserCart(JSON.parse(localStorage.getItem('order')))
+        } else if (localStorage.getItem('order1')) {
+            setUserCart(JSON.parse(localStorage.getItem('order1')))
+        } else if (localStorage.getItem('order2')) {
+            setUserCart(JSON.parse(localStorage.getItem('order2')))
+        } else if (localStorage.getItem('order3')) {
+            setUserCart(JSON.parse(localStorage.getItem('order3')))
+        }
     }
     let clearOrderHistory = (e) => {
-        localStorage.removeItem('order1')
+        if (localStorage.getItem('order')){
+            localStorage.removeItem('order')
+        } else if (localStorage.getItem('order1')) {
+            localStorage.removeItem('order1')
+        } else if (localStorage.getItem('order2')) {
+            localStorage.removeItem('order2')
+        } else if (localStorage.getItem('order3')) {
+            localStorage.removeItem('order3')
+        }
     }
-    console.log(userCart)
 
 
 
@@ -112,8 +127,16 @@ Accountinfo({user,setUser,setIsShowingAccountInfo,locations,setUserCart,userCart
                 <>
                     <h1>Order History</h1>
                     <button type='submit' className='btn' onClick={handleShowPastOrders}>Go Back</button>
-                    {localStorage.getItem('order1')?
+                    {localStorage.getItem('order')?
                         <button type='submit' className='btn' onClick={reFillCart}>Re-Order First Order</button>
+                    :
+                    null}
+                    {localStorage.getItem('order1')?
+                        <button type='submit' className='btn' onClick={reFillCart}>Re-Order Second Order</button>
+                    :
+                    null}
+                    {localStorage.getItem('order1')?
+                        <button type='submit' className='btn' onClick={reFillCart}>Re-Order Third Order</button>
                     :
                     null}
                     <button type='submit' className='btn' onClick={clearOrderHistory}>Delete History</button>
