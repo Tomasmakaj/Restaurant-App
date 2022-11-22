@@ -3,6 +3,7 @@ import './Card.css'
 
 const Card = ({menuitem, userCart, setUserCart}) => {
 
+  //fill userCart for ordering
   let handleClick=(e)=>{
     if (!userCart.some(e => e.item_name === menuitem.item_name)) {
       setUserCart([

@@ -83,6 +83,7 @@ Accountinfo({user,setUser,setIsShowingAccountInfo,locations,setUserCart,userCart
             setUserCart(JSON.parse(localStorage.getItem('order3')))
         }
     }
+    //clear order history
     let clearOrderHistory = (e) => {
         if (localStorage.getItem('order')){
             localStorage.removeItem('order')

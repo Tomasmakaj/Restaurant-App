@@ -4,10 +4,12 @@ import Cartitem from "../cartitem/Cartitem";
 
 const Cart = ({setNavOpen, userCart, setUserCart,user}) =>{
   
+  //close cart on screen
   let handleClose=(e)=>{
     setNavOpen((prevState)=>!prevState)
   }
 
+  //calculates total per item and subtotal for whole order
   let subtotal = (arr) => {
     let valueCount = arr.map(el=>el.price)
     let sum = valueCount.reduce((accumulator, value) => {
@@ -15,7 +17,7 @@ const Cart = ({setNavOpen, userCart, setUserCart,user}) =>{
     }, 0);
     return sum
   }
-
+  //"check out"/save order to locale storage
   let saveOrder = (e) => {
     if (user.username){
       if (!localStorage.getItem('order')) {

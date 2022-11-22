@@ -3,17 +3,18 @@ import './Cartitem.css'
 
 const Cartitem = ({singleitem, userCart,setUserCart}) => {
 
+  //remove item from usercart
   let handleDelete = ()=>{
     let filteredArray =userCart.filter((item)=>singleitem.item_name !== item.item_name)
     setUserCart(filteredArray)
   }
 
+  //add more/delete quantity of single item from userCArt
   const incrementValue = () => {
       singleitem.quantity++
       singleitem.price=singleitem.quantity*singleitem.base_price
       setUserCart([...userCart])
   }
-
 const decrementValue = () => {
     singleitem.quantity--
     singleitem.price=singleitem.quantity*singleitem.base_price

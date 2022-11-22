@@ -10,4 +10,5 @@ const MenuContainer = ({menu, userCart, setUserCart}) => {
     </div>
   )
 }
+
 export default MenuContainer

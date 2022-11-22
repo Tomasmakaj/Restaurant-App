@@ -2,22 +2,21 @@ import React, { useState, useEffect } from "react";
 import './Signup.css'
 
 function Signup({setIsShowingSignUp,setUser,user}){
+
     // get and set locations in dropdown menu
-    
     const [locations, setLocations] = useState([])
     useEffect(() => {
         fetch('http://localhost:3000/locations')
         .then(res => res.json())
         .then(data => setLocations(data))
     },[])
+
     // creates new user
-    
     const [newUser, setNewUser] = useState({
         username: '',
         password: '',
         location: ''
     });
-    
     let createUser = (e) => {
         e.preventDefault();
         console.log(e.target.value);
@@ -27,6 +26,7 @@ function Signup({setIsShowingSignUp,setUser,user}){
         });
     };
     
+    //creates new user
     function handlePost(e){
         e.preventDefault()
         fetch("http://localhost:3000/users",{
@@ -52,7 +52,7 @@ function Signup({setIsShowingSignUp,setUser,user}){
             setIsShowingSignUp(prevstate=>!prevstate)
             console.log(user)
         })};
-    
+
     return (
         <div onClick={()=>{setIsShowingSignUp(false)}}id='sign-in-modal'>
             <div id='sign-in-container' onClick={(e)=>{e.stopPropagation()}}>
@@ -69,5 +69,6 @@ function Signup({setIsShowingSignUp,setUser,user}){
             </div>
         </div>
     )
-};
+}
+
 export default Signup;

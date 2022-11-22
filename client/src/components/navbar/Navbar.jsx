@@ -11,11 +11,12 @@ import Accountinfo from '../account/Accountinfo.jsx';
 
 const Navbar = ({setUser,user,userCart,setUserCart,locations}) => {
     
+    //state for various nav bar pop-ups
     const[isShowingSignIn, setIsShowingSignIn] = useState (false)
     const [isShowingSignUp, setIsShowingSignUp] = useState (false);
     const [isShowingAccountInfo, setIsShowingAccountInfo] = useState (false);
     const [navOpen, setNavOpen] = useState(false)
-    
+    //handles showing cart
     let showCart=(e)=>{
         setNavOpen((prevState)=>!prevState)
     }
